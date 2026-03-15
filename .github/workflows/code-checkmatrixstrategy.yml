@@ -1,0 +1,30 @@
+name: Python Matrix Strategy 
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    Checkversion: 
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                python-version: ["3.11", "3.12", "3.13", "3.14"]
+
+        steps:
+            - name: Code Checkout 
+              uses: actions/checkout@v5
+            
+            - name: Setup Python ${{strategy.matrix.python-version}}
+              uses: actions/setup-python@v5
+              with: ${{strategy.matrix.python-version}}
+
+            - name: Install All Packages 
+              run: pip install -r requirements.txt
+
+            - name: Run Linter
+              run: flake8 .
+                  
+
+
