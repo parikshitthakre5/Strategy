@@ -7,6 +7,7 @@ FROM python:3.14-slim
 WORKDIR /app
 
 # Copy src code to container
+RUN apt-get update && apt-get upgrade -y
 
 COPY . .
 
