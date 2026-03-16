@@ -1,7 +1,7 @@
 #Trivy is a popular open-source vulnerability scanner for container images. It can be used to scan Docker images for known vulnerabilities in the operating system packages and application dependencies. Below is an example of a GitHub Actions workflow that uses Trivy to scan a Docker image.
 name: Image Scanner
 on:
-    workflow_dispatch:
+    workflow_call:
 jobs:
     image-scanner:
         runs-on: ubuntu-latest
