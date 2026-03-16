@@ -11,9 +11,11 @@ jobs:
 
             - name: Set Up Python
               uses: actions/setup-python@v5
+              with:
+                  python-version: "3.12"
 
             - name: Installing Pip audit package to scan with safety
-              run: pip install pip audit
+              run: pip install pip-audit
 
             - name: Audit Dependencies with Safety
-              run: pip audit requirements.txt
+              run: pip-audit -r requirements.txt
