@@ -1,0 +1,19 @@
+name: Dependency Scan
+on:
+    workflow_dispatch:
+
+jobs:
+    dependency-scan:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v5
+
+            - name: Set Up Python
+              uses: actions/setup-python@v5
+
+            - name: Installing Pip audit package to scan with safety
+              run: pip install pip audit
+
+            - name: Audit Dependencies with Safety
+              run: pip audit requirements.txt
