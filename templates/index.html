@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DevOps Zero To Hero</title>
+<title>DevOps CI/CD Demo</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
 min-height:100vh;
 display:flex;
@@ -21,7 +22,7 @@ color:#e0e0e0;
 
 h1{
 font-size:2.4rem;
-margin-bottom:10px;
+margin-bottom:8px;
 background:linear-gradient(90deg,#00d2ff,#7b2ff7);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
@@ -38,38 +39,43 @@ margin-bottom:25px;
 
 .pipeline{
 display:flex;
-gap:15px;
+gap:14px;
 justify-content:center;
 flex-wrap:wrap;
 }
 
 .step{
 padding:12px 18px;
-border:1px solid rgba(255,255,255,0.15);
 border-radius:10px;
 background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.15);
 font-size:14px;
 }
+
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
-<h1>DevOps Zero To Hero</h1>
-<div class="badge">Josh Batch 10</div>
+<h1>DevOps CI/CD Pipeline</h1>
+
+<div class="badge">Built by Parikshit Thakre</div>
 
 <div class="pipeline">
-<div class="step">Build</div>
-<div class="step">Lint</div>
-<div class="step">Test</div>
-<div class="step">Deployed</div>
+<div class="step">Flask App</div>
+<div class="step">Lint & Test</div>
+<div class="step">Docker Build</div>
+<div class="step">Push → DockerHub</div>
+<div class="step">Deploy → AWS ECS</div>
 </div>
 
 <p style="margin-top:25px;font-size:12px;color:#9ca3af;">
-Automated with GitHub Actions
+Automated using GitHub Actions
 </p>
 
 </div>
+
 </body>
 </html>
