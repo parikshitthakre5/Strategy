@@ -1,0 +1,29 @@
+name: Code Quality Checks
+on:
+    workflow_call:
+      
+jobs:
+    
+    validate: 
+        runs-on: ubuntu-latest 
+        strategy:
+            fail-fast: false
+            matrix:
+                python-version: ["3.11", "3.12", "3.13", "3.14"]
+        steps: 
+            - name: Checkout Code 
+              uses: actions/checkout@v5
+            
+            - name: Set Up Python 
+              uses: actions/setup-python@v5
+              with: 
+                  python-version: ${{matrix.python-version}}
+
+            - name: Installing all the packages and librarires 
+              run: pip install -r requirements.txt
+
+            - name: Installed the Linter and running
+              run: flake8 .
+
+            - name: Run SAST Checks
+              run: bandit -r app.py
